@@ -30,7 +30,7 @@ const AboutPage = () => {
             <div className="order-2 lg:order-1">
               <h2 className="text-4xl font-serif text-primary mb-4">Nuestra Historia</h2>
               <p className="text-muted leading-loose mb-4">
-                Rituales Esotéricos nació de una profunda vocación por reconectar con la sabiduría ancestral en un mundo moderno y acelerado. Su fundadora, Isabella "Luna" Valeriano, emprendió un viaje personal a través de diversas tradiciones místicas, descubriendo el poder transformador de los rituales cuando se realizan con intención, respeto y autenticidad.
+                Rituales Esotéricos nació de una profunda vocación por reconectar con la sabiduría ancestral en un mundo moderno y acelerado. Su fundadora, Isabella &quot;Luna&quot; Valeriano, emprendió un viaje personal a través de diversas tradiciones místicas, descubriendo el poder transformador de los rituales cuando se realizan con intención, respeto y autenticidad.
               </p>
               <p className="text-muted leading-loose">
                 Lo que comenzó como una práctica personal, floreció en una misión: crear un santuario para almas buscadoras. Un lugar donde la magia no es un truco, sino una herramienta sagrada para el autoconocimiento, la sanación y la manifestación consciente. Cada producto que ofrecemos es un reflejo de este viaje, cuidadosamente seleccionado y consagrado.
@@ -85,7 +85,7 @@ const AboutPage = () => {
               />
             </div>
           </div>
-          <h2 className="text-3xl font-serif text-primary mb-2">Isabella "Luna" Valeriano</h2>
+          <h2 className="text-3xl font-serif text-primary mb-2">Isabella &quot;Luna&quot; Valeriano</h2>
           <h3 className="text-xl text-muted font-semibold mb-4">Fundadora y Guía Espiritual</h3>
           <p className="text-muted leading-relaxed">
             Con más de 15 años de estudio en tarot, astrología y prácticas chamánicas, Luna dedica su vida a hacer accesible la sabiduría esotérica. Su enfoque combina el conocimiento ancestral con una perspectiva moderna y compasiva, guiando a otros a descubrir su propio poder interior.

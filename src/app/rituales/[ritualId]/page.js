@@ -94,7 +94,7 @@ const ProductDetailPage = ({ params }) => {
               Testimonios de Clientes
             </h3>
             <div className="bg-background/50 border border-secondary/20 rounded-lg p-6 text-center italic text-muted">
-              <p>"Este ritual cambió mi vida. Sentí una paz y una claridad que no había experimentado antes."</p>
+              <p>&quot;Este ritual cambió mi vida. Sentí una paz y una claridad que no había experimentado antes.&quot;</p>
               <p className="font-semibold text-foreground mt-2">- Cliente Satisfecho</p>
             </div>
           </div>

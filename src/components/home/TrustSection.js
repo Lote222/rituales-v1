@@ -10,10 +10,10 @@ const TrustSection = () => {
               Nuestra Misión
             </h2>
             <p className="text-lg text-muted mb-6 leading-relaxed">
-              "Mi camino en el esoterismo comenzó como una búsqueda personal de paz y propósito. Hoy, mi misión es compartir la sabiduría ancestral que transformó mi vida, ofreciendo herramientas auténticas y poderosas para que tú también puedas manifestar tus sueños y proteger tu energía. Cada ritual es una extensión de mi compromiso contigo."
+              &quot;Mi camino en el esoterismo comenzó como una búsqueda personal de paz y propósito. Hoy, mi misión es compartir la sabiduría ancestral que transformó mi vida, ofreciendo herramientas auténticas y poderosas para que tú también puedas manifestar tus sueños y proteger tu energía. Cada ritual es una extensión de mi compromiso contigo.&quot;
             </p>
             <p className="font-serif text-xl text-primary font-semibold">
-              - Isabella "Luna" Valeriano
+              - Isabella &quot;Luna&quot; Valeriano
             </p>
             <p className="text-muted">
               Fundadora de Rituales Esotéricos
