@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 0 17 42; /* #0F172A */
+    --background: 15 23 42; /* #0F172A */
     --foreground: 248 247 244; /* #F8F7F4 */
     --primary: 212 175 55; /* #D4AF37 */
     --secondary: 107 33 168; /* #6b21a8 */
@@ -17,11 +17,19 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    /*
+      Corrección para Tailwind CSS v4:
+      En lugar de usar @apply con clases personalizadas para el body,
+      aplicamos directamente las variables CSS definidas en :root.
+      Tailwind v4 compila esto de manera más eficiente.
+    */
+    background-color: rgb(var(--background));
+    color: rgb(var(--foreground));
+    font-family: var(--font-sans);
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+    font-family: var(--font-serif);
   }
 }
 
