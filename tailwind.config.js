@@ -10,11 +10,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: 'var(--background)',
-        foreground: 'var(--foreground)',
-        primary: 'var(--primary)',
-        secondary: 'var(--secondary)',
-        muted: 'var(--muted)',
+        'background': 'rgb(var(--background))',
+        'foreground': 'rgb(var(--foreground))',
+        'primary': 'rgb(var(--primary))',
+        'secondary': 'rgb(var(--secondary))',
+        'muted': 'rgb(var(--muted))',
       },
       fontFamily: {
         sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
