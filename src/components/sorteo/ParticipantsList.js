@@ -12,7 +12,7 @@ const ParticipantsList = () => {
       </p>
       <div className="columns-2 md:columns-3 lg:columns-4 gap-x-6">
         {lotteryParticipants.map((participant, index) => (
-          <div key={index} className="flex items-center bg-background/30 p-3 rounded-md mb-4 break-inside-avoid">
+          <div key={index} className="flex items-center bg-background/30 p-3 rounded-md mb-4 break-inside-avoid transition-all duration-200 ease-in-out hover:bg-secondary hover:scale-105 cursor-pointer">
             <ShieldCheck className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
             <span className="text-muted truncate">{participant.customerName}</span>
           </div>
