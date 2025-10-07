@@ -40,6 +40,9 @@ module.exports = {
           },
         },
       },
+      boxShadow: {
+        'custom-light': '0px 10px 30px rgba(46, 64, 52, 0.15)',
+      }
     },
   },
   plugins: [],

@@ -1,6 +1,8 @@
 import HeroSection from "@/components/home/HeroSection";
 import ProductsSection from "@/components/home/ProductsSection";
+import WinnerHighlight from "@/components/home/WinnerHighlight";
 import TrustSection from "@/components/home/TrustSection";
+import FaqSection from "@/components/home/FaqSection";
 import Link from 'next/link';
 
 const KnowledgeSection = () => {
@@ -29,8 +31,10 @@ export default function HomePage() {
     <>
       <HeroSection />
       <ProductsSection />
+      <WinnerHighlight />
       <TrustSection />
       <KnowledgeSection />
+      <FaqSection />
     </>
   );
 }
