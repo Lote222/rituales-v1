@@ -33,7 +33,7 @@ const LotteryPage = () => {
               Cada ritual que adquieres no solo te acerca a tus metas, sino que también te inscribe automáticamente en nuestro Círculo de la Suerte semanal.
             </p>
             <Link href="/#rituales">
-              <span className="bg-primary text-background font-bold text-lg py-4 px-8 rounded-full hover:bg-yellow-300 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 transform hover:-translate-y-1 inline-block cursor-pointer">
+              <span className="bg-primary text-background font-bold text-lg py-4 px-8 rounded-full hover:bg-emerald-600 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 transform hover:-translate-y-1 inline-block cursor-pointer">
                 Compra tu Ritual y Participa
               </span>
             </Link>

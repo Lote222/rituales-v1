@@ -16,14 +16,14 @@ const TrustSection = () => {
               - Isabella &quot;Luna&quot; Valeriano
             </p>
             <p className="text-muted">
-              Fundadora de Rituales Esotéricos
+              Fundadora de Herbolaria Sagrada
             </p>
           </div>
           <div className="md:w-1/2 flex justify-center">
             <div className="relative w-72 h-72 rounded-full overflow-hidden border-4 border-secondary/30 shadow-2xl shadow-secondary/20">
               <Image
                 src="/founder.jpg" // Placeholder for founder's image
-                alt="Fundadora de Rituales Esotéricos"
+                alt="Fundadora de Herbolaria Sagrada"
                 layout="fill"
                 objectFit="cover"
               />

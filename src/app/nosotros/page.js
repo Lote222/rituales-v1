@@ -18,7 +18,7 @@ const AboutPage = () => {
         <div className="relative container mx-auto px-6">
           <h1 className="text-5xl md:text-6xl font-serif font-bold text-foreground">Sobre Nosotros</h1>
           <p className="text-lg md:text-xl text-muted mt-4 max-w-3xl mx-auto">
-            Descubre la historia, la misión y la pasión que impulsan Rituales Esotéricos.
+            Descubre la historia, la misión y la pasión que impulsan Herbolaria Sagrada.
           </p>
         </div>
       </section>
@@ -30,7 +30,7 @@ const AboutPage = () => {
             <div className="order-2 lg:order-1">
               <h2 className="text-4xl font-serif text-primary mb-4">Nuestra Historia</h2>
               <p className="text-muted leading-loose mb-4">
-                Rituales Esotéricos nació de una profunda vocación por reconectar con la sabiduría ancestral en un mundo moderno y acelerado. Su fundadora, Isabella &quot;Luna&quot; Valeriano, emprendió un viaje personal a través de diversas tradiciones místicas, descubriendo el poder transformador de los rituales cuando se realizan con intención, respeto y autenticidad.
+                Herbolaria Sagrada nació de una profunda vocación por reconectar con la sabiduría ancestral en un mundo moderno y acelerado. Su fundadora, Isabella &quot;Luna&quot; Valeriano, emprendió un viaje personal a través de diversas tradiciones místicas, descubriendo el poder transformador de los rituales cuando se realizan con intención, respeto y autenticidad.
               </p>
               <p className="text-muted leading-loose">
                 Lo que comenzó como una práctica personal, floreció en una misión: crear un santuario para almas buscadoras. Un lugar donde la magia no es un truco, sino una herramienta sagrada para el autoconocimiento, la sanación y la manifestación consciente. Cada producto que ofrecemos es un reflejo de este viaje, cuidadosamente seleccionado y consagrado.
@@ -78,7 +78,7 @@ const AboutPage = () => {
           <div className="flex justify-center mb-6">
             <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-primary/50">
               <Image
-                src="/founder_placeholder.jpg"
+                src="/founder.jpg"
                 alt="Isabella 'Luna' Valeriano"
                 layout="fill"
                 objectFit="cover"
