@@ -5,7 +5,7 @@
 @layer base {
   :root {
     /* Usamos los valores RGB directos para las variables CSS */
-    --background: 15 23 42; /* #0F172A */
+    --background: 42 20 80; /* #0F172A */
     --foreground: 248 247 244; /* #F8F7F4 */
     --primary: 212 175 55; /* #D4AF37 */
     --secondary: 107 33 168; /* #6b21a8 */

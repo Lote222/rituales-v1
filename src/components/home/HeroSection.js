@@ -5,7 +5,7 @@ const HeroSection = () => {
   return (
     <section className="relative flex items-center justify-center h-screen bg-background overflow-hidden">
       {/* Subtle background pattern/image can be placed here */}
-      <div className="absolute inset-0 bg-[url('/mystical-background.jpg')] bg-cover bg-center opacity-10"></div>
+      <div className="absolute inset-0 bg-[url('/mystical.png')] bg-cover bg-center opacity-9"></div>
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent"></div>
 
       <div className="relative z-10 text-center px-4">

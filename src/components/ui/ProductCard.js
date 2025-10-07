@@ -23,7 +23,7 @@ const ProductCard = ({ product }) => {
             {product.description}
           </p>
           <div className="flex justify-between items-center mt-4">
-            <span className="text-xl font-bold text-foreground">${product.price}</span>
+            {/* <span className="text-xl font-bold text-foreground">${product.price}</span> */}
             <span className="text-primary font-semibold group-hover:underline">
               Ver Detalles
             </span>

@@ -22,7 +22,7 @@ const TrustSection = () => {
           <div className="md:w-1/2 flex justify-center">
             <div className="relative w-72 h-72 rounded-full overflow-hidden border-4 border-secondary/30 shadow-2xl shadow-secondary/20">
               <Image
-                src="/founder_placeholder.jpg" // Placeholder for founder's image
+                src="/founder.jpg" // Placeholder for founder's image
                 alt="Fundadora de Rituales Esotéricos"
                 layout="fill"
                 objectFit="cover"
