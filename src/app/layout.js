@@ -1,4 +1,4 @@
-import { Inter, Cormorant_Garamond } from "next/font/google";
+import { Lora, Lato } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
@@ -16,16 +16,17 @@ async function getMockSiteConfig() {
   };
 }
 
-const inter = Inter({
+const lora = Lora({
   subsets: ["latin"],
-  variable: '--font-inter',
+  weight: ["600"],
+  variable: '--font-serif',
   display: 'swap',
 });
 
-const cormorantGaramond = Cormorant_Garamond({
+const lato = Lato({
   subsets: ["latin"],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-cormorant-garamond',
+  weight: ["400"],
+  variable: '--font-sans',
   display: 'swap',
 });
 
@@ -38,7 +39,7 @@ export default async function RootLayout({ children }) {
   const siteConfig = await getMockSiteConfig();
 
   return (
-    <html lang="es" className={`${inter.variable} ${cormorantGaramond.variable}`}>
+    <html lang="es" className={`${lato.variable} ${lora.variable}`}>
       <body className="font-sans bg-background text-foreground">
         <Navbar
           whatsappNumber={siteConfig.whatsapp_number}

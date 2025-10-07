@@ -20,6 +20,26 @@ module.exports = {
         sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
         serif: ['var(--font-serif)', ...defaultTheme.fontFamily.serif],
       },
+      animation: {
+        'reveal-up': 'reveal-up 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards',
+        'fade-in-up': 'fade-in-up 0.9s ease-out forwards',
+      },
+      keyframes: {
+        'reveal-up': {
+          '0%': { transform: 'translateY(100%)' },
+          '100%': { transform: 'translateY(0)' },
+        },
+        'fade-in-up': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(20px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
+        },
+      },
     },
   },
   plugins: [],
