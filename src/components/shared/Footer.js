@@ -13,26 +13,26 @@ const SocialIcon = ({ href, children }) => (
 
 const Footer = ({ email, phone }) => {
   return (
-    <footer className="bg-background/50 border-t border-secondary/20 mt-20">
-      <div className="container mx-auto px-6 py-8">
-        <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-          <div className="mb-6 md:mb-0">
-            <h3 className="text-xl font-serif font-bold text-primary mb-2">Herbolaria Sagrada</h3>
-            <p className="text-muted max-w-sm">
+    <footer className="bg-secondary border-t border-stone-200 mt-24">
+      <div className="container mx-auto px-6 py-16">
+        <div className="grid md:grid-cols-3 gap-12 text-center md:text-left">
+          <div className="md:col-span-1">
+            <h3 className="text-xl font-serif font-bold text-primary mb-3">Herbolaria Sagrada</h3>
+            <p className="text-muted-foreground max-w-sm mx-auto md:mx-0">
               Conectando con la sabiduría ancestral para manifestar un futuro radiante.
             </p>
           </div>
 
-          <div className="mb-6 md:mb-0">
-            <h4 className="font-serif text-lg font-semibold text-foreground mb-3">Contacto Directo</h4>
-            <div className="space-y-2 text-muted">
+          <div className="md:col-span-1">
+            <h4 className="font-serif text-lg font-semibold text-primary mb-4">Contacto Directo</h4>
+            <div className="space-y-2 text-muted-foreground">
               <p>Email: <a href={`mailto:${email}`} className="hover:text-primary transition-colors">{email}</a></p>
               <p>Teléfono: <span className="hover:text-primary transition-colors">{phone}</span></p>
             </div>
           </div>
 
-          <div>
-            <h4 className="font-serif text-lg font-semibold text-foreground mb-3">Síguenos</h4>
+          <div className="md:col-span-1">
+            <h4 className="font-serif text-lg font-semibold text-primary mb-4">Síguenos</h4>
             <div className="flex justify-center md:justify-start space-x-6">
               <SocialIcon href="#">
                 <Instagram size={22} strokeWidth={1.5} />
@@ -49,9 +49,9 @@ const Footer = ({ email, phone }) => {
             </div>
           </div>
         </div>
-        <div className="border-t border-secondary/10 mt-8 pt-6 text-center text-muted/60">
+        <div className="border-t border-primary/10 mt-12 pt-8 text-center text-muted-foreground/80">
           <p>&copy; {new Date().getFullYear()} Herbolaria Sagrada. Todos los derechos reservados.</p>
-          <p className="text-sm mt-1">Diseñado con intención y magia.</p>
+          <p className="text-sm mt-2">Diseñado con intención y magia.</p>
         </div>
       </div>
     </footer>

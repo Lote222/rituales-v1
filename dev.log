@@ -1,5 +1,4 @@
 
 > rituales-v1@0.1.0 dev
-> next dev
+> ./node_modules/.bin/next dev
 
-sh: 1: next: not found

@@ -19,23 +19,23 @@ const Navbar = ({ whatsappNumber }) => {
   const contactLink = `https://wa.me/${whatsappNumber}?text=Hola,%20quisiera%20más%20información%20sobre%20sus%20rituales.`;
 
   return (
-    <nav className="bg-background/80 backdrop-blur-sm sticky top-0 z-50">
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-2 text-2xl font-serif font-bold text-primary hover:text-white transition-colors">
+    <nav className="bg-background/80 backdrop-blur-sm sticky top-0 z-50 border-b border-stone-200/50">
+      <div className="container mx-auto px-6 py-5 flex justify-between items-center">
+        <Link href="/" className="flex items-center gap-3 text-2xl font-serif font-bold text-primary transition-colors">
           <Image
             src="/HerbolariaLogo1.png"
             alt="Herbolaria Sagrada Logo"
-            width={32}
-            height={32}
-            className="h-8 w-8"
+            width={36}
+            height={36}
+            className="h-9 w-9"
           />
           <span>Herbolaria Sagrada</span>
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-10">
           {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="text-foreground hover:text-primary transition-colors duration-300">
+            <Link key={link.href} href={link.href} className="text-foreground hover:text-primary transition-colors duration-300 font-sans">
               {link.label}
             </Link>
           ))}
@@ -43,7 +43,7 @@ const Navbar = ({ whatsappNumber }) => {
             href={contactLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-primary text-background font-bold py-2 px-4 rounded-full hover:bg-emerald-600 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
+            className="btn-primary !py-3 !px-6 text-sm"
           >
             Contacto
           </a>
