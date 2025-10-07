@@ -21,7 +21,7 @@ const Navbar = ({ whatsappNumber }) => {
     <nav className="bg-background/80 backdrop-blur-sm sticky top-0 z-50">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <Link href="/" className="text-2xl font-serif font-bold text-primary hover:text-white transition-colors">
-          Rituales Esotéricos
+          Herbolaria Sagrada
         </Link>
 
         {/* Desktop Menu */}
