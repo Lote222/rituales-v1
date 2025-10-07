@@ -5,37 +5,37 @@ const tips = [
   {
     title: 'Cómo Limpiar tu Espacio con Salvia',
     excerpt: 'Aprende la técnica ancestral para purificar tu hogar de energías negativas y crear un ambiente de paz.',
-    imageSrc: '/tip_placeholder_1.jpg',
+    imageSrc: '/Salvia.png',
     href: '#',
   },
   {
     title: 'La Magia de los Cuarzos: Elige tu Piedra',
     excerpt: 'Una guía completa para entender el poder de los cristales y cómo seleccionar el que mejor resuena contigo.',
-    imageSrc: '/tip_placeholder_2.jpg',
+    imageSrc: '/Piedra.png',
     href: '#',
   },
   {
     title: 'Ritual de Luna Nueva para Nuevos Comienzos',
     excerpt: 'Aprovecha la energía de la luna nueva para plantar tus intenciones y manifestar tus más grandes anhelos.',
-    imageSrc: '/tip_placeholder_3.jpg',
+    imageSrc: '/Comienzos.jpeg',
     href: '#',
   },
   {
     title: 'El Significado de las Velas por su Color',
     excerpt: 'Descubre qué color de vela usar en tus rituales para potenciar tus intenciones de amor, prosperidad o protección.',
-    imageSrc: '/tip_placeholder_4.jpg',
+    imageSrc: '/Significado.png',
     href: '#',
   },
   {
     title: '5 Hierbas Protectoras que no Pueden Faltar',
     excerpt: 'Conoce las hierbas más poderosas para crear escudos energéticos y mantener tu aura protegida.',
-    imageSrc: '/tip_placeholder_5.jpg',
+    imageSrc: '/Hierba.png',
     href: '#',
   },
   {
     title: 'Interpretando Señales del Universo',
     excerpt: 'Abre tu percepción para reconocer y entender los mensajes que el universo te envía a diario.',
-    imageSrc: '/tip_placeholder_6.jpg',
+    imageSrc: '/Universo.png',
     href: '#',
   },
 ];

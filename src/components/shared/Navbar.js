@@ -23,7 +23,7 @@ const Navbar = ({ whatsappNumber }) => {
       <div className="container mx-auto px-6 py-5 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-3 text-2xl font-serif font-bold text-primary transition-colors">
           <Image
-            src="/HerbolariaLogo1.png"
+            src="/HerbolariaIcon.png"
             alt="Herbolaria Sagrada Logo"
             width={36}
             height={36}

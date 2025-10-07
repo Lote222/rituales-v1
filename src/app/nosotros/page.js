@@ -39,7 +39,7 @@ const AboutPage = () => {
             <div className="order-1 lg:order-2 flex justify-center">
                <div className="relative w-full max-w-md h-96 rounded-lg overflow-hidden border-4 border-secondary/30 shadow-2xl shadow-secondary/20">
                 <Image
-                  src="/ritual_ingredients.jpg" // Placeholder for an aesthetic image
+                  src="/Historia.png" // Placeholder for an aesthetic image
                   alt="Ingredientes sagrados para rituales"
                   layout="fill"
                   objectFit="cover"
@@ -78,7 +78,7 @@ const AboutPage = () => {
           <div className="flex justify-center mb-6">
             <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-primary/50">
               <Image
-                src="/founder.jpg"
+                src="/Luna.png"
                 alt="Isabella 'Luna' Valeriano"
                 layout="fill"
                 objectFit="cover"

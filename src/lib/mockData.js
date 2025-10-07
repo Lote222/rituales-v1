@@ -5,7 +5,7 @@ export const products = [
     description: "Un kit completo para atraer prosperidad y abrir los caminos del éxito financiero. Contiene hierbas ancestrales, cuarzos energizados y un manual de instrucciones detallado para realizar el ritual durante la luna creciente.",
     price: 77.77,
     ingredients: ["Salvia Blanca", "Pirita", "Cuarzo Citrino", "Aceite de Canela", "Vela Dorada"],
-    imageSrc: "/ritual_placeholder.jpg",
+    imageSrc: "/Abundancia.png",
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const products = [
     description: "Purifica tu espacio y tu aura con este poderoso kit. Ideal para eliminar bloqueos, energías negativas y envidias. Restaura la armonía y la paz en tu hogar y en tu ser interior.",
     price: 55.55,
     ingredients: ["Palo Santo", "Turmalina Negra", "Copal", "Agua de Florida", "Vela Blanca"],
-    imageSrc: "/ritual_placeholder.jpg",
+    imageSrc: "/Limpieza.png",
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ export const products = [
     description: "Fortalece tu autoestima y magnetismo personal. Este ritual está diseñado para sanar heridas emocionales, fomentar el amor propio y atraer relaciones sanas y correspondidas.",
     price: 66.66,
     ingredients: ["Pétalos de Rosa", "Cuarzo Rosa", "Aceite de Jazmín", "Incienso de Sándalo", "Vela Rosa"],
-    imageSrc: "/ritual_placeholder.jpg",
+    imageSrc: "/Amor.png",
   },
 ];
 
