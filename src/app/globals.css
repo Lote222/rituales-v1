@@ -5,11 +5,11 @@
 @layer base {
   :root {
     /* Usamos los valores RGB directos para las variables CSS */
-    --background: 42 20 80; /* #0F172A */
-    --foreground: 248 247 244; /* #F8F7F4 */
-    --primary: 212 175 55; /* #D4AF37 */
-    --secondary: 107 33 168; /* #6b21a8 */
-    --muted: 226 232 240; /* #E2E8F0 */
+    --background: 17 24 39; /* Gris oscuro azulado */
+    --foreground: 229 231 235; /* Gris claro */
+    --primary: 52 211 153; /* Verde esmeralda brillante del logo */
+    --secondary: 16 185 129; /* Verde esmeralda más oscuro */
+    --muted: 156 163 175; /* Gris medio para texto secundario */
 
     /* Fuentes se mantienen igual */
     --font-serif: "Cormorant Garamond", serif;

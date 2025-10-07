@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 
 const Navbar = ({ whatsappNumber }) => {
@@ -20,8 +21,15 @@ const Navbar = ({ whatsappNumber }) => {
   return (
     <nav className="bg-background/80 backdrop-blur-sm sticky top-0 z-50">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-serif font-bold text-primary hover:text-white transition-colors">
-          Herbolaria Sagrada
+        <Link href="/" className="flex items-center gap-2 text-2xl font-serif font-bold text-primary hover:text-white transition-colors">
+          <Image
+            src="/HerbolariaLogo1.png"
+            alt="Herbolaria Sagrada Logo"
+            width={32}
+            height={32}
+            className="h-8 w-8"
+          />
+          <span>Herbolaria Sagrada</span>
         </Link>
 
         {/* Desktop Menu */}
@@ -35,7 +43,7 @@ const Navbar = ({ whatsappNumber }) => {
             href={contactLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-primary text-background font-bold py-2 px-4 rounded-full hover:bg-yellow-300 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
+            className="bg-primary text-background font-bold py-2 px-4 rounded-full hover:bg-emerald-600 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
           >
             Contacto
           </a>
@@ -63,7 +71,7 @@ const Navbar = ({ whatsappNumber }) => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
-              className="bg-primary text-background font-bold py-3 px-6 rounded-full text-lg hover:bg-yellow-300 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
+              className="bg-primary text-background font-bold py-3 px-6 rounded-full text-lg hover:bg-emerald-600 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
             >
               Contactar por WhatsApp
             </a>

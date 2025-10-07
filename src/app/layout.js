@@ -30,8 +30,8 @@ const cormorantGaramond = Cormorant_Garamond({
 });
 
 export const metadata = {
-  title: "Rituales Esotéricos - Transforma tu Energía",
-  description: "Descubre rituales sagrados y productos esotéricos de alta calidad para manifestar tus deseos, atraer abundancia y proteger tu energía.",
+  title: "Herbolaria Sagrada - Suministros Naturistas & Esencias Esotéricas",
+  description: "Descubre el poder de la naturaleza con nuestros suministros naturistas y esencias esotéricas. Productos consagrados para manifestar, sanar y proteger tu energía.",
 };
 
 export default async function RootLayout({ children }) {

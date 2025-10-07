@@ -26,7 +26,7 @@ const WhatsAppButton = ({ productName, whatsappNumber }) => {
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="block w-full text-center bg-primary text-background font-bold text-xl py-4 px-8 rounded-full hover:bg-yellow-300 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 transform hover:-translate-y-1"
+      className="block w-full text-center bg-primary text-background font-bold text-xl py-4 px-8 rounded-full hover:bg-emerald-600 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 transform hover:-translate-y-1"
     >
       Comprar por WhatsApp
     </a>
