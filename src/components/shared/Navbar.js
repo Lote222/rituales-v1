@@ -18,7 +18,10 @@ const Navbar = () => {
     { href: '/tips', label: 'Tips' },
   ];
 
-  const contactLink = `https://wa.me/${siteConfig?.whatsapp_number}?text=Hola,%20quisiera%20más%20información%20sobre%20sus%20rituales.`;
+  // FIX: Se ajusta el mensaje pre-establecido para los botones genéricos
+  const genericMessage = "Hola, estoy interesado en los rituales.";
+  const encodedGenericMessage = encodeURIComponent(genericMessage);
+  const contactLink = `https://wa.me/${siteConfig?.whatsapp_number}?text=${encodedGenericMessage}`;
 
   return (
     <nav className="bg-background/80 backdrop-blur-sm sticky top-0 z-50 border-b border-stone-200/50">
