@@ -1,4 +1,5 @@
-import { lotteryWinner } from '@/lib/mockData';
+// FIX: No longer importing from mockData
+// import { lotteryWinner } from '@/lib/mockData';
 
 const LaurelWreathIcon = ({ className }) => (
   <svg
@@ -7,18 +8,6 @@ const LaurelWreathIcon = ({ className }) => (
     xmlns="http://www.w3.org/2000/svg"
     aria-hidden="true"
   >
-    <path
-      d="M100 20C60 20 30 50 30 90c0 40 30 70 70 70s70-30 70-70c0-40-30-70-70-70zm0 130c-33 0-60-27-60-60s27-60 60-60 60 27 60 60-27 60-60 60z"
-      fill="none"
-    />
-    <path
-      d="M145.4 145.4c-12.4 12.4-28.8 19.5-46.4 19.5s-34-7.1-46.4-19.5c-2.5-2.5-2.5-6.6 0-9.2l9.2-9.2c2.5-2.5 6.6-2.5 9.2 0 7.8 7.8 18.2 12.1 29.4 12.1s21.6-4.3 29.4-12.1c2.5-2.5 6.6-2.5 9.2 0l9.2 9.2c2.5 2.5 2.5 6.6 0 9.2zM54.6 54.6c12.4-12.4 28.8-19.5 46.4-19.5s34 7.1 46.4 19.5c2.5 2.5 2.5 6.6 0 9.2l-9.2 9.2c-2.5 2.5-6.6 2.5-9.2 0-7.8-7.8-18.2-12.1-29.4-12.1s-21.6 4.3-29.4-12.1c-2.5-2.5-6.6-2.5-9.2 0l-9.2-9.2c-2.5-2.5-2.5-6.6 0-9.2z"
-      fill="currentColor"
-    />
-    <path
-      d="M100 40c-16.5 0-30 13.5-30 30s13.5 30 30 30 30-13.5 30-30-13.5-30-30-30zm0 50c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20z"
-      fill="none"
-    />
     <g transform="translate(100 100) scale(0.8)">
       <path
         d="M-31-69.5c-4.6-1.5-9.3-2.3-14-2.3-19.3 0-35 15.7-35 35s15.7 35 35 35c4.7 0 9.4-1 14-2.5"
@@ -26,7 +15,7 @@ const LaurelWreathIcon = ({ className }) => (
         transform="rotate(20)"
       />
       <path
-        d="M31-69.5c4.6-1.5 9.3-2.3 14-2.3 19.3 0 35 15.7 35 35s-15.7 35-35 35c-4.7 0-9.4-1-14-2.5"
+        d="M31-69.5c4.6-1.5 9.3-2.3 14-2.3-19.3 0 35 15.7 35 35s-15.7 35-35 35c-4.7 0-9.4-1-14-2.5"
         stroke="currentColor" strokeWidth="10" strokeLinecap="round" fill="none"
         transform="scale(-1, 1) rotate(20)"
       />
@@ -35,7 +24,12 @@ const LaurelWreathIcon = ({ className }) => (
 );
 
 
-const WinnerDisplay = () => {
+// FIX: The component now receives the winner as a prop
+const WinnerDisplay = ({ winner }) => {
+  // FIX: Use the winner data from props, or show a default message.
+  const winnerName = winner?.nombre_ganador || 'Isabel C.';
+  const prizeName = winner?.nombre_premio || 'Kit de Abundancia Completo';
+
   return (
     <div className="relative bg-background/60 p-8 rounded-2xl ring-2 ring-inset ring-primary shadow-lg shadow-secondary/20 overflow-hidden text-center">
 
@@ -47,15 +41,15 @@ const WinnerDisplay = () => {
         </h3>
 
         <p className="text-6xl font-serif font-bold text-primary my-4">
-          Isabel C.
+          {winnerName}
         </p>
 
         <p className="text-lg text-muted">
-          Ha ganado: <span className="font-semibold text-foreground">Kit de Abundancia Completo</span>
+          Ha ganado: <span className="font-semibold text-foreground">{prizeName}</span>
         </p>
 
         <p className="text-muted mt-8 max-w-md mx-auto text-sm">
-          ¡Felicidades, Isabel! Tu confianza en la magia ha sido recompensada. Tu premio ya está en camino para iluminar tu vida.
+          ¡Felicidades! Tu confianza en la magia ha sido recompensada. Tu premio ya está en camino para iluminar tu vida.
         </p>
       </div>
     </div>

@@ -57,4 +57,74 @@ export async function getWebsiteConfig(websiteSlug) {
   }
 }
 
-// La función getLatestWinner() se ha eliminado para usar los datos mock.
+export async function getWinnersForSite(websiteSlug) {
+  try {
+    // 1. Primero, obtenemos el ID del sitio web usando el slug.
+    const { data: websiteData, error: websiteError } = await supabase
+      .from('websites')
+      .select('id')
+      .eq('slug', websiteSlug)
+      .single();
+
+    if (websiteError || !websiteData) {
+      console.error('No se pudo encontrar el sitio para buscar ganadores:', websiteError?.message);
+      return []; // Devolvemos un array vacío si no encontramos el sitio.
+    }
+
+    const websiteId = websiteData.id;
+
+    // 2. Usamos el ID para buscar en la nueva tabla 'ganadores'.
+    const { data, error } = await supabase
+      .from('ganadores')
+      .select('nombre_ganador, nombre_premio, fecha_sorteo')
+      .eq('website_id', websiteId)
+      .order('fecha_sorteo', { ascending: false }); // Ordenamos del más reciente al más antiguo.
+
+    if (error) {
+      console.error('Error fetching winners:', error.message);
+      return []; // Devolvemos un array vacío si hay un error.
+    }
+
+    return data;
+
+  } catch (error) {
+    console.error('An unexpected error occurred in getWinnersForSite:', error.message);
+    return [];
+  }
+}
+
+export async function getLatestWinnerForSite(websiteSlug) {
+  try {
+    const { data: websiteData, error: websiteError } = await supabase
+      .from('websites')
+      .select('id')
+      .eq('slug', websiteSlug)
+      .single();
+
+    if (websiteError || !websiteData) {
+      console.error('No se pudo encontrar el sitio para buscar ganadores:', websiteError?.message);
+      return null;
+    }
+
+    const websiteId = websiteData.id;
+
+    const { data, error } = await supabase
+      .from('ganadores')
+      .select('nombre_ganador, nombre_premio')
+      .eq('website_id', websiteId)
+      .order('fecha_sorteo', { ascending: false })
+      .limit(1)
+      .single();
+
+    if (error) {
+      console.error('Error fetching latest winner:', error.message);
+      return null;
+    }
+
+    return data;
+
+  } catch (error) {
+    console.error('An unexpected error occurred in getLatestWinnerForSite:', error.message);
+    return null;
+  }
+}

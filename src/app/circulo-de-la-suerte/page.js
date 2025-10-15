@@ -1,10 +1,43 @@
 import WinnerDisplay from '@/components/sorteo/WinnerDisplay';
-import ParticipantsList from '@/components/sorteo/ParticipantsList';
 import Link from 'next/link';
-// FIX: Se elimina la importación de 'getLatestWinner'
+import { getWinnersForSite } from '@/lib/supabaseClient';
+import { ShieldCheck } from 'lucide-react';
 
-// FIX: La página ya no es 'async'
-const LotteryPage = () => {
+// This component is now corrected to properly format the date
+const WinnersList = ({ winners }) => {
+  return (
+    <div className="bg-background/50 border border-secondary/20 rounded-lg p-8 mt-16">
+      <h3 className="text-3xl font-serif font-bold text-center text-foreground mb-8">
+        Muro de Ganadores
+      </h3>
+      <div className="max-w-2xl mx-auto">
+        {winners && winners.length > 0 ? (
+          <ul className="space-y-4">
+            {winners.map((winner, index) => (
+              <li key={index} className="flex items-center bg-background/30 p-4 rounded-md transition-all duration-200 ease-in-out hover:bg-secondary hover:scale-105">
+                <ShieldCheck className="w-6 h-6 text-primary mr-4 flex-shrink-0" />
+                <div className="flex-grow">
+                  <p className="font-semibold text-foreground">{winner.nombre_ganador}</p>
+                  <p className="text-sm text-muted">{winner.nombre_premio}</p>
+                </div>
+                {/* FIX: Correctly format the date string from the database */}
+                <p className="text-sm text-muted">{new Date(winner.fecha_sorteo + 'T00:00:00-05:00').toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-center text-muted">Aún no hay ganadores registrados para este sitio.</p>
+        )}
+      </div>
+    </div>
+  );
+};
+
+
+const LotteryPage = async () => {
+  const winners = await getWinnersForSite(process.env.WEBSITE_SLUG);
+  const latestWinner = winners?.[0] || null;
+
   return (
     <div>
       <section className="relative py-20 md:py-32 text-center bg-cover bg-center" style={{backgroundImage: "url('/mystical-background.jpg')"}}>
@@ -21,9 +54,8 @@ const LotteryPage = () => {
 
       <section className="py-20">
         <div className="container mx-auto px-6">
-          {/* Usamos los datos por defecto del componente pasándole 'null' */}
-          <WinnerDisplay winner={null} />
-          <ParticipantsList />
+          <WinnerDisplay winner={latestWinner} />
+          <WinnersList winners={winners} />
 
           <div className="text-center mt-20">
             <h2 className="text-4xl font-serif font-bold text-foreground mb-4">
