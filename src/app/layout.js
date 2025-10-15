@@ -2,19 +2,11 @@ import { Lora, Lato } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
+// FIX: Importamos la función real de Supabase y el proveedor de contexto.
+import { getWebsiteConfig } from "@/lib/supabaseClient";
+import { SiteConfigProvider } from "@/context/SiteConfigContext";
 
-// Mock fetching function for site config. In a real app, this would be
-// replaced with the actual call to `getWebsiteConfig` from `supabaseClient.js`.
-async function getMockSiteConfig() {
-  // Simulate a network delay
-  await new Promise(resolve => setTimeout(resolve, 50));
-  return {
-    whatsapp_number: "+1234567890", // Example number
-    email_contact: "contacto@rituales-esotericos.com",
-    phone_contact: "987-654-3210",
-    website_slug: process.env.WEBSITE_SLUG,
-  };
-}
+// Se eliminó la función getMockSiteConfig.
 
 const lora = Lora({
   subsets: ["latin"],
@@ -36,19 +28,20 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const siteConfig = await getMockSiteConfig();
+  // FIX: Se llama a la función real para obtener datos de Supabase.
+  // Usamos el WEBSITE_SLUG del archivo .env.local para identificar qué configuración cargar.
+  const siteConfig = await getWebsiteConfig(process.env.WEBSITE_SLUG);
 
   return (
     <html lang="es" className={`${lato.variable} ${lora.variable}`}>
       <body className="font-sans bg-background text-foreground">
-        <Navbar
-          whatsappNumber={siteConfig.whatsapp_number}
-        />
-        <main>{children}</main>
-        <Footer
-          email={siteConfig.email_contact}
-          phone={siteConfig.phone_contact}
-        />
+        {/* FIX: Envolvemos la aplicación con el proveedor del contexto. */}
+        {/* El valor 'siteConfig' ahora está disponible para todos los componentes hijos. */}
+        <SiteConfigProvider value={siteConfig}>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </SiteConfigProvider>
       </body>
     </html>
   );

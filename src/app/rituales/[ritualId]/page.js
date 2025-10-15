@@ -2,22 +2,21 @@ import { products } from '@/lib/mockData';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { CheckCircle } from 'lucide-react';
+import { getWebsiteConfig } from '@/lib/supabaseClient';
 
-// This function generates the static paths for each ritual
 export async function generateStaticParams() {
   return products.map((product) => ({
     ritualId: product.id.toString(),
   }));
 }
 
-// This function gets the data for a specific ritual
 const getProductData = (id) => {
   const product = products.find((p) => p.id.toString() === id);
   return product;
 };
 
 const WhatsAppButton = ({ productName, whatsappNumber }) => {
-  const message = `Hola, estoy interesado en el "${productName}". Quisiera más información para comprarlo.`;
+  const message = `Hola, estoy interesado en el "${productName}". Quisiera más información.`;
   const encodedMessage = encodeURIComponent(message);
   const link = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
@@ -26,19 +25,20 @@ const WhatsAppButton = ({ productName, whatsappNumber }) => {
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="block w-full text-center bg-primary text-background font-bold text-xl py-4 px-8 rounded-full hover:bg-emerald-600 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 transform hover:-translate-y-1"
+      className="flex items-center justify-center gap-3 w-full text-center bg-primary text-background font-bold text-xl py-4 px-8 rounded-full hover:bg-emerald-600 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 transform hover:-translate-y-1"
     >
-      Comprar por WhatsApp
+      <span>💬</span>
+      <span>Solicita este paquete por WhatsApp</span>
     </a>
   );
 };
 
-const ProductDetailPage = ({ params }) => {
+const ProductDetailPage = async ({ params }) => {
   const { ritualId } = params;
   const product = getProductData(ritualId);
-
-  // In a real app, the WhatsApp number would come from the layout fetch
-  const mockWhatsappNumber = "+1234567890";
+  
+  const siteConfig = await getWebsiteConfig(process.env.WEBSITE_SLUG);
+  const whatsappNumber = siteConfig?.whatsapp_number || '';
 
   if (!product) {
     notFound();
@@ -53,8 +53,8 @@ const ProductDetailPage = ({ params }) => {
             <Image
               src={product.imageSrc}
               alt={`Imagen del ${product.name}`}
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: 'cover' }}
             />
              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
           </div>
@@ -79,14 +79,18 @@ const ProductDetailPage = ({ params }) => {
             <h3 className="font-serif text-2xl text-primary font-semibold mb-4">
               Ingredientes Sagrados
             </h3>
-            <ul className="space-y-3">
-              {product.ingredients.map((ingredient, index) => (
-                <li key={index} className="flex items-center text-muted">
-                  <CheckCircle className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
-                  <span>{ingredient}</span>
-                </li>
-              ))}
-            </ul>
+            {product.ingredients && product.ingredients.length > 0 ? (
+              <ul className="space-y-3">
+                {product.ingredients.map((ingredient, index) => (
+                  <li key={index} className="flex items-center text-muted">
+                    <CheckCircle className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
+                    <span>{ingredient}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-muted italic">Consulta por WhatsApp para conocer los ingredientes específicos de este paquete.</p>
+            )}
           </div>
 
           <div className="mb-8">
@@ -100,7 +104,7 @@ const ProductDetailPage = ({ params }) => {
           </div>
 
           <div className="sticky bottom-6">
-             <WhatsAppButton productName={product.name} whatsappNumber={mockWhatsappNumber} />
+             <WhatsAppButton productName={product.name} whatsappNumber={whatsappNumber} />
           </div>
         </div>
       </div>

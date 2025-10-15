@@ -4,9 +4,11 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
+import { useSiteConfig } from '@/context/SiteConfigContext';
 
-const Navbar = ({ whatsappNumber }) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const siteConfig = useSiteConfig();
 
   const navLinks = [
     { href: '/', label: 'Inicio' },
@@ -16,7 +18,7 @@ const Navbar = ({ whatsappNumber }) => {
     { href: '/tips', label: 'Tips' },
   ];
 
-  const contactLink = `https://wa.me/${whatsappNumber}?text=Hola,%20quisiera%20más%20información%20sobre%20sus%20rituales.`;
+  const contactLink = `https://wa.me/${siteConfig?.whatsapp_number}?text=Hola,%20quisiera%20más%20información%20sobre%20sus%20rituales.`;
 
   return (
     <nav className="bg-background/80 backdrop-blur-sm sticky top-0 z-50 border-b border-stone-200/50">

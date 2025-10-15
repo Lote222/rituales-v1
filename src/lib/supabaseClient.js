@@ -1,7 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
 
-// It's recommended to place these in your .env.local file
-// and expose them to the browser using the NEXT_PUBLIC_ prefix.
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
@@ -11,25 +9,47 @@ if (!supabaseUrl || !supabaseAnonKey) {
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-/**
- * Fetches the website configuration from Supabase.
- * @param {string} websiteSlug - The slug of the website to fetch config for.
- * @returns {Promise<object | null>} The website configuration object or null if not found.
- */
 export async function getWebsiteConfig(websiteSlug) {
   try {
-    const { data, error } = await supabase
+    // ==================================================================
+    // LA CORRECCIÓN ESTÁ AQUÍ
+    // Se añade .limit(1) para asegurar que solo obtenemos un resultado,
+    // incluso si hay duplicados en la base de datos.
+    // ==================================================================
+    const { data: websiteData, error: websiteError } = await supabase
       .from('websites')
-      .select('config')
+      .select('id')
       .eq('slug', websiteSlug)
+      .limit(1) // <-- ESTA ES LA LÍNEA QUE SOLUCIONA EL ERROR
       .single();
+
+    if (websiteError) {
+      console.error('Error fetching website ID:', websiteError.message);
+      return null;
+    }
+    
+    if (!websiteData) {
+        console.error(`No website found with slug: ${websiteSlug}`);
+        return null;
+    }
+
+    const { data, error } = await supabase
+      .from('website_config')
+      .select('key, value')
+      .eq('website_id', websiteData.id);
 
     if (error) {
       console.error('Error fetching website config:', error.message);
       return null;
     }
 
-    return data ? data.config : null;
+    const config = data.reduce((acc, { key, value }) => {
+      acc[key] = value;
+      return acc;
+    }, {});
+
+    return config;
+
   } catch (error) {
     console.error('An unexpected error occurred:', error.message);
     return null;

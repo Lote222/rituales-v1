@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import { Twitter, Instagram, Facebook, Youtube } from 'lucide-react';
+import { useSiteConfig } from '@/context/SiteConfigContext';
 
 const SocialIcon = ({ href, children }) => (
   <a
@@ -12,7 +15,12 @@ const SocialIcon = ({ href, children }) => (
   </a>
 );
 
-const Footer = ({ email, phone }) => {
+const Footer = () => {
+  const siteConfig = useSiteConfig();
+  
+  const email = siteConfig?.email_contact || 'cargando...';
+  const phone = siteConfig?.phone_contact || 'cargando...';
+
   return (
     <footer className="bg-secondary border-t border-stone-200 mt-24">
       <div className="container mx-auto px-6 py-16">
