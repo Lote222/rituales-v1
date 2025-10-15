@@ -1,5 +1,5 @@
-// FIX: Se actualiza la lista de productos con la nueva información del cliente.
-// NOTA: Las imágenes, ingredientes y precios son placeholders y deben ser actualizados cuando los tengas.
+// src/lib/mockData.js
+
 export const products = [
   {
     id: 1,
@@ -7,7 +7,7 @@ export const products = [
     description: "Conecta energías de atracción, reconciliación y estabilidad emocional. Incluye elementos rituales para fortalecer el vínculo entre almas y abrir los caminos del amor verdadero.",
     price: 0.00,
     ingredients: [],
-    imageSrc: "/Amor.png", // Placeholder
+    imageSrc: "/rituales/Amor.jpg", // FIX: Ruta de imagen actualizada
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const products = [
     description: "Activa tu buena suerte, protege tus decisiones y atrae oportunidades inesperadas. Ideal para juegos, negocios o proyectos personales.",
     price: 0.00,
     ingredients: [],
-    imageSrc: "/Abundancia.png", // Placeholder
+    imageSrc: "/rituales/Suerte.jpg", // FIX: Ruta de imagen actualizada
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ export const products = [
     description: "Despierta la energía del dinero, la expansión económica y el éxito profesional. Contiene esencias y elementos para armonizar la vibración de la riqueza.",
     price: 0.00,
     ingredients: [],
-    imageSrc: "/Abundancia.png", // Placeholder
+    imageSrc: "/rituales/Prosperidad.jpg", // FIX: Ruta de imagen actualizada
   },
   {
     id: 4,
@@ -31,7 +31,7 @@ export const products = [
     description: "Purifica tu entorno, elimina bloqueos espirituales y corta energías negativas. Perfecto para reinicios energéticos o después de periodos difíciles.",
     price: 0.00,
     ingredients: [],
-    imageSrc: "/Limpieza.png", // Placeholder
+    imageSrc: "/rituales/Limpieza.jpg", // FIX: Ruta de imagen actualizada
   },
   {
     id: 5,
@@ -39,7 +39,7 @@ export const products = [
     description: "Escudo energético personal o para el hogar. Repele envidias, mal de ojo y vibraciones densas, ayudando a mantener la paz y la claridad espiritual.",
     price: 0.00,
     ingredients: [],
-    imageSrc: "/Piedra.png", // Placeholder
+    imageSrc: "/rituales/Protección.jpg", // FIX: Ruta de imagen actualizada
   },
   {
     id: 6,
@@ -47,7 +47,7 @@ export const products = [
     description: "Restablece la armonía interior con elementos naturales y medicina ancestral. Ideal para revitalizar cuerpo, mente y espíritu.",
     price: 0.00,
     ingredients: [],
-    imageSrc: "/Hierba.png", // Placeholder
+    imageSrc: "/rituales/Sanación.jpg", // FIX: Ruta de imagen actualizada
   },
   {
     id: 7,
@@ -55,7 +55,7 @@ export const products = [
     description: "Canaliza la energía del logro, el enfoque y la confianza. Especial para quienes buscan abrir nuevos caminos o alcanzar metas personales y laborales.",
     price: 0.00,
     ingredients: [],
-    imageSrc: "/Universo.png", // Placeholder
+    imageSrc: "/rituales/Superación.jpg", // FIX: Ruta de imagen actualizada
   },
   {
     id: 8,
@@ -63,7 +63,7 @@ export const products = [
     description: "Rompe obstáculos, despeja caminos cerrados y renueva tus oportunidades. Excelente para quienes sienten que “nada fluye” o buscan un nuevo comienzo.",
     price: 0.00,
     ingredients: [],
-    imageSrc: "/Comienzos.jpeg", // Placeholder
+    imageSrc: "/rituales/Apertura.jpg", // FIX: Ruta de imagen actualizada
   },
   {
     id: 9,
@@ -71,7 +71,7 @@ export const products = [
     description: "Recupera la paz en tu entorno familiar, equilibra la convivencia y limpia las energías del hogar con fuerzas naturales y sagradas.",
     price: 0.00,
     ingredients: [],
-    imageSrc: "/Historia.png", // Placeholder
+    imageSrc: "/rituales/ArmoniaFamilia.jpg", // FIX: Ruta de imagen actualizada
   },
   {
     id: 10,
@@ -79,12 +79,10 @@ export const products = [
     description: "Diseñado según tu necesidad: amor, salud, dinero o equilibrio espiritual. Cada preparación es única, guiada por la energía y el propósito de tu alma.",
     price: 0.00,
     ingredients: [],
-    imageSrc: "/Salvia.png", // Placeholder
+    imageSrc: "/rituales/Personalizado.jpg", // FIX: Ruta de imagen actualizada
   },
 ];
 
-
-// Mantenemos el resto de los datos mock por ahora
 export const lotteryParticipants = [
     { customerName: "Ana G.", invoiceNumber: "INV-001" },
     { customerName: "Carlos M.", invoiceNumber: "INV-002" },
