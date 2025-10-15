@@ -1,12 +1,9 @@
-// src/context/SiteConfigContext.js
 'use client';
 
 import { createContext, useContext } from 'react';
 
-// Se crea un contexto para almacenar la configuración del sitio.
 const SiteConfigContext = createContext(null);
 
-// El proveedor que envolverá nuestra aplicación.
 export const SiteConfigProvider = ({ children, value }) => {
   return (
     <SiteConfigContext.Provider value={value}>
@@ -15,11 +12,11 @@ export const SiteConfigProvider = ({ children, value }) => {
   );
 };
 
-// Un "hook" personalizado para acceder fácilmente a la configuración desde cualquier componente cliente.
 export const useSiteConfig = () => {
   const context = useContext(SiteConfigContext);
   if (context === null) {
-    throw new Error('useSiteConfig debe ser usado dentro de un SiteConfigProvider');
+    // Este es el error que ves cuando la configuración falla en el layout
+    throw new Error('useSiteConfig debe ser usado dentro de un SiteConfigProvider con un valor válido.');
   }
   return context;
 };

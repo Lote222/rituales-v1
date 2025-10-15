@@ -18,8 +18,8 @@ const SocialIcon = ({ href, children }) => (
 const Footer = () => {
   const siteConfig = useSiteConfig();
   
-  const email = siteConfig?.email_contact || 'cargando...';
-  const phone = siteConfig?.phone_contact || 'cargando...';
+  const email = siteConfig?.email_contact || '';
+  const phone = siteConfig?.phone_contact || '';
 
   return (
     <footer className="bg-secondary border-t border-stone-200 mt-24">

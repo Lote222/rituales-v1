@@ -1,4 +1,6 @@
 import Link from 'next/link';
+// FIX: Importamos los datos mock para el ganador
+import { lotteryWinner } from '@/lib/mockData';
 
 const LaurelWreathIcon = ({ className }) => (
   <svg
@@ -22,6 +24,7 @@ const LaurelWreathIcon = ({ className }) => (
   </svg>
 );
 
+// FIX: El componente ya no recibe props, usa los datos mock directamente.
 const WinnerHighlight = () => {
   return (
     <section className="bg-secondary py-20 md:py-28">
@@ -33,7 +36,7 @@ const WinnerHighlight = () => {
               Nuestra Última Ganadora
             </h2>
             <p className="text-2xl font-serif text-foreground mb-6">
-              Isabel C. se llevó un Kit de Abundancia
+              {lotteryWinner.customerName} se llevó un Kit de Abundancia
             </p>
             <p className="text-muted mb-8 max-w-lg mx-auto md:mx-0">
               Cada compra en Herbolaria Sagrada es un boleto dorado a nuestro sorteo semanal. Tú podrías ser el próximo en recibir la magia en tu puerta.
@@ -47,7 +50,7 @@ const WinnerHighlight = () => {
             <div className="relative w-64 h-64">
                 <LaurelWreathIcon className="text-primary/40" />
                 <div className="absolute inset-0 flex items-center justify-center text-center">
-                    <p className="text-4xl font-serif font-extrabold text-primary">Isabel C.</p>
+                    <p className="text-4xl font-serif font-extrabold text-primary">{lotteryWinner.customerName}</p>
                 </div>
             </div>
           </div>

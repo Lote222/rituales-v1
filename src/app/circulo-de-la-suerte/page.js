@@ -1,11 +1,12 @@
 import WinnerDisplay from '@/components/sorteo/WinnerDisplay';
 import ParticipantsList from '@/components/sorteo/ParticipantsList';
 import Link from 'next/link';
+// FIX: Se elimina la importación de 'getLatestWinner'
 
+// FIX: La página ya no es 'async'
 const LotteryPage = () => {
   return (
     <div>
-      {/* Header Section */}
       <section className="relative py-20 md:py-32 text-center bg-cover bg-center" style={{backgroundImage: "url('/mystical-background.jpg')"}}>
         <div className="absolute inset-0 bg-background/80 backdrop-blur-sm"></div>
         <div className="relative container mx-auto px-6">
@@ -18,13 +19,12 @@ const LotteryPage = () => {
         </div>
       </section>
 
-      {/* Main Content Section */}
       <section className="py-20">
         <div className="container mx-auto px-6">
-          <WinnerDisplay />
+          {/* Usamos los datos por defecto del componente pasándole 'null' */}
+          <WinnerDisplay winner={null} />
           <ParticipantsList />
 
-          {/* CTA Section */}
           <div className="text-center mt-20">
             <h2 className="text-4xl font-serif font-bold text-foreground mb-4">
               ¿Quieres ser el próximo?

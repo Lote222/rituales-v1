@@ -25,7 +25,6 @@ const KnowledgeSection = () => {
   );
 };
 
-
 export default function HomePage() {
   return (
     <>

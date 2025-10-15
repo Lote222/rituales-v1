@@ -4,23 +4,23 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error("Supabase URL and Anon Key must be defined in environment variables.");
+  throw new Error("Las variables de entorno de Supabase no están definidas.");
 }
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
+/**
+ * Fetches the website configuration from Supabase.
+ * @param {string} websiteSlug - The slug of the website to fetch config for.
+ * @returns {Promise<object | null>} The website configuration object or null if not found.
+ */
 export async function getWebsiteConfig(websiteSlug) {
   try {
-    // ==================================================================
-    // LA CORRECCIÓN ESTÁ AQUÍ
-    // Se añade .limit(1) para asegurar que solo obtenemos un resultado,
-    // incluso si hay duplicados en la base de datos.
-    // ==================================================================
     const { data: websiteData, error: websiteError } = await supabase
       .from('websites')
       .select('id')
       .eq('slug', websiteSlug)
-      .limit(1) // <-- ESTA ES LA LÍNEA QUE SOLUCIONA EL ERROR
+      .limit(1) // Soluciona el error de resultados duplicados
       .single();
 
     if (websiteError) {
@@ -33,8 +33,9 @@ export async function getWebsiteConfig(websiteSlug) {
         return null;
     }
 
+    // Usamos el nombre correcto de la tabla: "site_configurations"
     const { data, error } = await supabase
-      .from('website_config')
+      .from('site_configurations')
       .select('key, value')
       .eq('website_id', websiteData.id);
 
@@ -51,7 +52,9 @@ export async function getWebsiteConfig(websiteSlug) {
     return config;
 
   } catch (error) {
-    console.error('An unexpected error occurred:', error.message);
+    console.error('An unexpected error occurred en getWebsiteConfig:', error.message);
     return null;
   }
 }
+
+// La función getLatestWinner() se ha eliminado para usar los datos mock.
