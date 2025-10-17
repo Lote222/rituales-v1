@@ -10,34 +10,23 @@ if (!supabaseUrl || !supabaseAnonKey) {
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 // Función auxiliar para obtener el ID del sitio web
-async function getWebsiteIdBySlug(websiteSlug) {
-  console.log(`[DEBUG] Buscando ID para el slug: ${websiteSlug}`);
-  
-  // Usamos .limit(1) para evitar errores si hay duplicados
+export async function getWebsiteIdBySlug(slug) {
+  console.log(`[DEBUG] Buscando ID para el slug: ${slug}`);
   const { data, error } = await supabase
     .from('websites')
     .select('id')
-    .eq('slug', websiteSlug)
-    .limit(1);
+    .eq('slug', slug)
+    .single();
 
   if (error) {
-    console.error(`[DEBUG] Error al buscar el website ID:`, error.message);
+    console.error(`[DEBUG] Error buscando website ID para el slug ${slug}:`, error.message);
     return null;
   }
-  
-  if (!data || data.length === 0) {
-      console.error(`[DEBUG] No se encontró ningún sitio con el slug: ${websiteSlug}`);
-      return null;
-  }
-  
-  const websiteId = data[0].id;
-  console.log(`[DEBUG] Website ID encontrado: ${websiteId}`);
-  return websiteId;
+  console.log(`[DEBUG] Website ID encontrado: ${data.id}`);
+  return data.id;
 }
 
-// ... (getWebsiteConfig y getRitualsForSite no cambian)
 
-// FIX: Función de Sorteo con logs de depuración
 export async function getSorteoFortunaData(websiteSlug) {
   console.log('-------------------------------------------');
   console.log('[DEBUG] Iniciando getSorteoFortunaData...');
@@ -47,10 +36,13 @@ export async function getSorteoFortunaData(websiteSlug) {
     console.error('[DEBUG] No se pudo obtener el websiteId. La función terminará.');
     return { latestPastDraw: null, nextFutureDraw: null, history: [] };
   }
+  // FIX: Agregar este console.log para verificar el websiteId justo antes de las consultas
+  console.log('[DEBUG] websiteId usado en consulta de sorteos:', websiteId); 
 
   try {
-    const now = new Date().toISOString();
-    const today = now.split('T')[0];
+    const now = new Date();
+    // Formatear la fecha a 'YYYY-MM-DD' para una comparación efectiva con columnas de tipo 'date'
+    const today = now.toISOString().split('T')[0]; 
     console.log(`[DEBUG] Fecha actual para la consulta: ${today}`);
 
     const [pastDrawsResult, nextFutureDrawResult] = await Promise.all([
@@ -58,34 +50,34 @@ export async function getSorteoFortunaData(websiteSlug) {
         .from('sorteos_fortuna')
         .select('*')
         .eq('website_id', websiteId)
-        .lte('fecha_sorteo', today)
+        .lte('fecha_sorteo', today) // Mantiene la lógica: menor o igual a hoy
         .order('fecha_sorteo', { ascending: false })
         .limit(6),
       supabase
         .from('sorteos_fortuna')
         .select('*')
         .eq('website_id', websiteId)
-        .gt('fecha_sorteo', today)
+        .gt('fecha_sorteo', today) // Mantiene la lógica: mayor que hoy
         .order('fecha_sorteo', { ascending: true })
         .limit(1)
-        .single()
     ]);
 
-    console.log('[DEBUG] Resultado de la consulta de sorteos pasados:', pastDrawsResult.data ? `${pastDrawsResult.data.length} registros.` : pastDrawsResult.error);
-    console.log('[DEBUG] Resultado de la consulta de sorteo futuro:', nextFutureDrawResult.data ? '1 registro.' : nextFutureDrawResult.error?.message);
-
     const { data: pastDraws, error: pastError } = pastDrawsResult;
-    const { data: nextFutureDraw, error: futureError } = nextFutureDrawResult;
+    const { data: nextDraws, error: futureError } = nextFutureDrawResult;
+    
+    console.log('[DEBUG] Consulta de sorteos pasados resultados:', pastDraws ? `${pastDraws.length} registros.` : `Error: ${pastError?.message}`);
+    console.log('[DEBUG] Consulta de sorteo futuro resultados:', nextDraws ? `${nextDraws.length} registros.` : `Error: ${futureError?.message}`);
 
     if (pastError) console.error("[DEBUG] Error detallado en sorteos pasados:", pastError.message);
-    if (futureError && futureError.code !== 'PGRST116') {
-      console.error("[DEBUG] Error detallado en sorteo futuro:", futureError.message);
-    }
-    
+    if (futureError) console.error("[DEBUG] Error detallado en sorteo futuro:", futureError.message);
+
     const latestPastDraw = pastDraws?.[0] || null;
-    const history = pastDraws?.slice(1, 6) || [];
+    const history = pastDraws?.slice(1) || []; 
+
+    const nextFutureDraw = nextDraws?.[0] || null;
 
     console.log('[DEBUG] Sorteo más reciente encontrado:', latestPastDraw ? 'Sí' : 'No');
+    console.log('[DEBUG] Próximo sorteo encontrado:', nextFutureDraw ? 'Sí' : 'No');
     console.log(`[DEBUG] Historial encontrado: ${history.length} registros.`);
     console.log('-------------------------------------------');
 

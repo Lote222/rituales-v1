@@ -1,3 +1,5 @@
+// src/components/shared/Navbar.js
+
 'use client';
 
 import { useState } from 'react';
@@ -13,12 +15,12 @@ const Navbar = () => {
   const navLinks = [
     { href: '/', label: 'Inicio' },
     { href: '/#rituales', label: 'Rituales' },
-    { href: '/circulo-de-la-suerte', label: 'Círculo de la Suerte' },
+    // FIX: Se actualizó el texto del enlace según la nueva marca del sorteo.
+    { href: '/circulo-de-la-suerte', label: 'Sorteo Fortuna' },
     { href: '/nosotros', label: 'Nosotros' },
     { href: '/tips', label: 'Tips' },
   ];
 
-  // FIX: Se ajusta el mensaje pre-establecido para los botones genéricos
   const genericMessage = "Hola, estoy interesado en los rituales.";
   const encodedGenericMessage = encodeURIComponent(genericMessage);
   const contactLink = `https://wa.me/${siteConfig?.whatsapp_number}?text=${encodedGenericMessage}`;
