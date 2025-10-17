@@ -4,8 +4,8 @@ import WinnerHighlight from "@/components/home/WinnerHighlight";
 import TrustSection from "@/components/home/TrustSection";
 import FaqSection from "@/components/home/FaqSection";
 import Link from 'next/link';
-// FIX: Se importa la nueva función para obtener el ganador
-import { getLatestWinnerForSite } from "@/lib/supabaseClient";
+// FIX: Importamos las funciones actualizadas
+import { getSorteoFortunaData, getRitualsForSite } from "@/lib/supabaseClient";
 
 const KnowledgeSection = () => (
   <section className="py-20 bg-background">
@@ -14,10 +14,10 @@ const KnowledgeSection = () => (
         Conocimiento Ancestral
       </h2>
       <p className="text-lg text-muted max-w-2xl mx-auto mb-8">
-        Explora nuestros consejos y secretos para potenciar tu práctica espiritual y atraer la buena fortuna a tu vida.
+        Explora nuestros consejos y secretos para potenciar tu práctica espiritual.
       </p>
       <Link href="/tips">
-        <span className="border border-primary text-primary font-bold text-lg py-3 px-8 rounded-full hover:bg-primary hover:text-background hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 cursor-pointer">
+        <span className="border border-primary text-primary font-bold text-lg py-3 px-8 rounded-full hover:bg-primary hover:text-background transition-all duration-300 cursor-pointer">
           Leer Nuestros Tips
         </span>
       </Link>
@@ -25,16 +25,16 @@ const KnowledgeSection = () => (
   </section>
 );
 
-// FIX: La página ahora es 'async' para poder buscar los datos
 export default async function HomePage() {
-  // Se obtiene el último ganador usando el slug del .env
-  const winner = await getLatestWinnerForSite(process.env.WEBSITE_SLUG);
+  // FIX: Obtenemos todos los datos necesarios en el Server Component
+  const { latestPastDraw, nextFutureDraw } = await getSorteoFortunaData(process.env.WEBSITE_SLUG);
+  const rituals = await getRitualsForSite(process.env.WEBSITE_SLUG);
 
   return (
     <>
       <HeroSection />
-      <ProductsSection />
-      <WinnerHighlight winner={winner} />
+      <ProductsSection rituals={rituals} />
+      <WinnerHighlight latestPastDraw={latestPastDraw} nextFutureDraw={nextFutureDraw} />
       <TrustSection />
       <KnowledgeSection />
       <FaqSection />

@@ -26,7 +26,6 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const siteConfig = await getWebsiteConfig(process.env.WEBSITE_SLUG);
-  console.log(siteConfig)
 
   return (
     <html lang="es" className={`${lato.variable} ${lora.variable}`}>
