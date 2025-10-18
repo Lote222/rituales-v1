@@ -1,11 +1,17 @@
+// lote222/rituales-v1/rituales-v1-4a7fea06377fcea43204408b8c844ab5b1c579fe/src/app/page.js
 import HeroSection from "@/components/home/HeroSection";
 import ProductsSection from "@/components/home/ProductsSection";
 import WinnerHighlight from "@/components/home/WinnerHighlight";
 import TrustSection from "@/components/home/TrustSection";
 import FaqSection from "@/components/home/FaqSection";
 import Link from 'next/link';
-// FIX: Importamos las funciones actualizadas
 import { getSorteoFortunaData, getRitualsForSite } from "@/lib/supabaseClient";
+
+// FIX: Se añade esta línea para forzar el renderizado dinámico.
+// EXPLANATION: Esto le dice a Next.js que no guarde en caché esta página y que
+// la regenere en cada solicitud, asegurando que siempre tengamos los datos más frescos
+// de la base de datos.
+export const dynamic = 'force-dynamic';
 
 const KnowledgeSection = () => (
   <section className="py-20 bg-background">
@@ -26,7 +32,6 @@ const KnowledgeSection = () => (
 );
 
 export default async function HomePage() {
-  // FIX: Obtenemos todos los datos necesarios en el Server Component
   const { latestPastDraw, nextFutureDraw } = await getSorteoFortunaData(process.env.WEBSITE_SLUG);
   const rituals = await getRitualsForSite(process.env.WEBSITE_SLUG);
 

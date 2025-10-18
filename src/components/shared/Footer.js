@@ -43,27 +43,21 @@ const Footer = () => {
           <div className="md:col-span-1">
             <h4 className="font-serif text-lg font-semibold text-primary mb-4">Síguenos</h4>
             <div className="flex justify-center md:justify-start space-x-6">
-              <SocialIcon href="#">
-                <Instagram size={22} strokeWidth={1.5} />
-              </SocialIcon>
-              <SocialIcon href="#">
-                <Facebook size={22} strokeWidth={1.5} />
-              </SocialIcon>
-              <SocialIcon href="#">
-                <Youtube size={22} strokeWidth={1.5} />
-              </SocialIcon>
-              <SocialIcon href="#">
-                <Twitter size={22} strokeWidth={1.5} />
-              </SocialIcon>
+              <SocialIcon href="#"><Instagram size={22} strokeWidth={1.5} /></SocialIcon>
+              <SocialIcon href="#"><Facebook size={22} strokeWidth={1.5} /></SocialIcon>
+              <SocialIcon href="#"><Youtube size={22} strokeWidth={1.5} /></SocialIcon>
+              <SocialIcon href="#"><Twitter size={22} strokeWidth={1.5} /></SocialIcon>
             </div>
           </div>
         </div>
         <div className="border-t border-primary/10 mt-12 pt-8 text-center">
-          <div className="flex justify-center items-center space-x-6 mb-8">
-            <Link href="/nosotros" className="text-muted-foreground/80 hover:text-primary transition-colors duration-300">Nosotros</Link>
-            <Link href="/rituales" className="text-muted-foreground/80 hover:text-primary transition-colors duration-300">Rituales</Link>
-            <Link href="/tips" className="text-muted-foreground/80 hover:text-primary transition-colors duration-300">Tips</Link>
-            <Link href="/faq" className="text-muted-foreground/80 hover:text-primary transition-colors duration-300">Preguntas Frecuentes</Link>
+          <div className="flex justify-center items-center flex-wrap gap-x-6 gap-y-2 mb-8">
+            <Link href="/nosotros" className="text-muted-foreground/80 hover:text-primary transition-colors">Nosotros</Link>
+            <Link href="/rituales" className="text-muted-foreground/80 hover:text-primary transition-colors">Rituales</Link>
+            <Link href="/tips" className="text-muted-foreground/80 hover:text-primary transition-colors">Tips</Link>
+            <Link href="/faq" className="text-muted-foreground/80 hover:text-primary transition-colors">Preguntas Frecuentes</Link>
+            {/* FIX: Se añade el enlace a Términos y Condiciones */}
+            <Link href="/terms" className="text-muted-foreground/80 hover:text-primary transition-colors">Términos y Condiciones</Link>
           </div>
           <p className="text-muted-foreground/80">&copy; {new Date().getFullYear()} Herbolaria Sagrada. Todos los derechos reservados.</p>
           <p className="text-sm mt-2 text-muted-foreground/60">Diseñado con intención y magia.</p>

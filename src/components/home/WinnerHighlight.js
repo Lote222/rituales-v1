@@ -1,4 +1,3 @@
-// src/components/home/WinnerHighlight.js
 'use client';
 
 import Link from 'next/link';
@@ -6,7 +5,7 @@ import { useState, useEffect } from 'react';
 
 // --- Subcomponente para el Contador ---
 const CountdownTimer = ({ targetDate }) => {
-  // ... (sin cambios, la lógica se mantiene)
+  // ... (la lógica del contador no cambia)
   const [isClient, setIsClient] = useState(false);
   useEffect(() => { setIsClient(true); }, []);
 
@@ -57,10 +56,9 @@ const CountdownTimer = ({ targetDate }) => {
 // --- Subcomponente para las Balotas Animadas ---
 const NumberBall = ({ number, isLucky, delay }) => (
   <div
-    // FIX: Aplicamos la nueva paleta de colores a las balotas.
     className={`flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full font-bold text-xl md:text-2xl shadow-lg border-2 animate-fade-in-up ${
       isLucky 
-        ? 'bg-amber-400 text-primary border-amber-200 shadow-amber-500/30' 
+        ? 'bg-yellow-400 text-primary border-yellow-200 shadow-yellow-500/30' 
         : 'bg-primary text-background border-emerald-700 shadow-primary/30'
     }`}
     style={{ animationDelay: `${delay}ms` }}
@@ -109,11 +107,10 @@ const WinnerHighlight = ({ latestPastDraw, nextFutureDraw }) => {
                 )}
               </div>
               <p className="text-2xl font-serif font-bold text-foreground mt-6">
-                  {/* FIX: Se ajusta el color del premio a 'amber-500' para máxima consistencia. */}
-                  El premio fue de <span className="text-amber-500">{latestPastDraw.monto_premio}</span>
+                  El premio fue de <span className="text-yellow-500">{latestPastDraw.monto_premio}</span>
               </p>
               <div className="mt-8">
-                  <Link href="/circulo-de-la-suerte" className="font-semibold text-primary hover:text-amber-500 transition-colors">
+                  <Link href="/circulo-de-la-suerte" className="font-semibold text-primary hover:text-emerald-500 transition-colors">
                       Ver Historial de Sorteos →
                   </Link>
               </div>
@@ -125,7 +122,7 @@ const WinnerHighlight = ({ latestPastDraw, nextFutureDraw }) => {
               <h3 className="text-3xl font-serif font-bold text-primary mb-4">
                 Próximo Sorteo
               </h3>
-              <p className="text-2xl font-serif text-amber-500 mb-6">
+              <p className="text-2xl font-serif text-yellow-500 mb-6">
                 {nextFutureDraw.monto_premio}
               </p>
               <div className="max-w-md mx-auto">
@@ -139,6 +136,11 @@ const WinnerHighlight = ({ latestPastDraw, nextFutureDraw }) => {
                   Elegir mi Ritual
                 </Link>
               </div>
+              <div className="mt-4">
+                <Link href="/terms" className="text-xs text-muted hover:text-primary underline transition-colors">
+                    Ver términos y condiciones del sorteo
+                </Link>
+              </div>
             </div>
           )}
         </div>
@@ -148,3 +150,4 @@ const WinnerHighlight = ({ latestPastDraw, nextFutureDraw }) => {
 };
 
 export default WinnerHighlight;
+
