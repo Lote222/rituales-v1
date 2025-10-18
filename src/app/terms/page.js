@@ -26,7 +26,7 @@ const TermsPage = () => {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-6 max-w-3xl">
           {/* Usamos clases de 'prose' para estilizar el texto largo */}
-          <div className="prose prose-lg mx-auto text-muted space-y-6">
+          <div className="prose prose-lg mx-auto text-black space-y-6">
             <h2 className="text-2xl font-serif text-primary">Introducción</h2>
             <p>
               Herbolaria Sagrada (&quot;La Compañía&quot;), con operaciones en Estados Unidos y presencia en América Latina, organiza periódicamente sorteos y promociones (en adelante, &quot;Sorteo de la Fortuna Botánica&quot;) como una forma de agradecimiento y recompensa a la lealtad de sus apreciados clientes.
@@ -34,15 +34,15 @@ const TermsPage = () => {
             
             <h2 className="text-2xl font-serif text-primary">Elegibilidad y Participación</h2>
             <p>
-              La participación en el Sorteo de la Fortuna Botánica está abierta a clientes mayores de edad según la legislación de su país de residencia. <strong>Cada compra realizada de cualquier producto o servicio ofrecido por Herbolaria Sagrada a través de sus canales oficiales otorga automáticamente al cliente un (1) número único de participación para el próximo sorteo programado.</strong> No es necesaria ninguna acción adicional para inscribirse. La compra implica la aceptación automática de estos términos y condiciones.
+              La participación en el Sorteo de la Fortuna Botánica está abierta a clientes mayores de edad según la legislación de su país de residencia. Cada compra realizada de cualquier producto o servicio ofrecido por Herbolaria Sagrada a través de sus canales oficiales otorga automáticamente al cliente un (1) número único de participación para el próximo sorteo programado. No es necesaria ninguna acción adicional para inscribirse. La compra implica la aceptación automática de estos términos y condiciones.
             </p>
 
-            <h2 className="text-2xl font-serif text-primary">Naturaleza del Sorteo y Legalidad</h2>
+            <h2 className="text-2xl font-serif text-black">Naturaleza del Sorteo y Legalidad</h2>
             <p>
               El Sorteo de la Fortuna Botánica es una promoción comercial basada en el azar. Se ejecuta con estricto apego a las normativas de transparencia comercial aplicables en las jurisdicciones donde opera La Compañía, incluyendo Estados Unidos y los países relevantes de América Latina.
             </p>
             <p>
-              La Compañía se compromete a seguir las directrices generales de entidades reguladoras como Coljuegos (Colombia) y los Departamentos Estatales de Control de Promociones (EE.UU.) en lo que respecta a la equidad, legalidad y protección al consumidor en actividades promocionales.
+              La Compañía se compromete a seguir las directrices generales de entidades reguladoras  y los Departamentos Estatales de Control de Promociones (EE.UU.) en lo que respecta a la equidad, legalidad y protección al consumidor en actividades promocionales.
             </p>
 
             <h2 className="text-2xl font-serif text-primary">Selección de Ganadores y Premios</h2>
